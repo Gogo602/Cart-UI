@@ -9,7 +9,7 @@ export default function App() {
   useEffect(() => {
     const getProducts = async () => {
       try{
-          const res = await fetch("http://localhost:8000/products")
+          const res = await fetch("api/products")
           const data = await res.json()
           setProducts(data)
       }catch(err){
@@ -21,9 +21,6 @@ export default function App() {
     getProducts()
   },[])
 
-  console.log(products)
-
-
       
 
   return (
@@ -34,7 +31,7 @@ export default function App() {
           <p>Loading...</p>
         )}
         {error && (
-          <p>Loading...</p>
+          <p>{error.message}</p>
         )}
         <ProductList products={products}/>
       </div>
