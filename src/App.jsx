@@ -1,7 +1,8 @@
 import ProductList from './components/ProductList';
 
-export default function App() {
 
+export default function App() {
+ 
   return (
     <div className="flex items-center justify-center p-6 min-h-screen w-full bg-gray-700">
       <div className='space-y-8'>
@@ -11,3 +12,5 @@ export default function App() {
     </div>
   )
 }
+
+
