@@ -22,7 +22,7 @@ export default function Header() {
                 <div className='relative'>
                     <button onClick={() => handleShow()} className='cursor-pointer'>
                         <FaCartArrowDown size={25} className=' text-gray-700 shadow-2xl' />
-                        {itemCount > 0 &&(
+                        {itemCount > 0 && (
                             <p
                                 className='text-white bg-red-600 absolute z-1 -top-2 -right-2 text-xs border rounded-full h-5 w-5 flex items-center justify-center'>
                                 {itemCount}
@@ -30,7 +30,7 @@ export default function Header() {
                         )}
                     </button>
                     {showDropDwon && (
-                        <CartItems cart={cart} total={total}/>
+                        <CartItems cart={cart} total={total} />
                     )}
               </div>
           </div> 
