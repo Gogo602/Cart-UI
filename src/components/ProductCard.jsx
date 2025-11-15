@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
         </div>
         <button 
           onClick={ () => addToCart(product)}
-          className=" bg-gray-700 text-white font-bold rounded-lg text-center w-full py-2">Add to Cart</button>
+          className=" bg-gray-700 text-white font-bold rounded-lg text-center w-full py-2 cursor-pointer">Add to Cart</button>
     </div>
   )
 }
