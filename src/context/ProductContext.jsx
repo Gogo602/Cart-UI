@@ -33,6 +33,6 @@ export function ProductProvider({ children }) {
 
 
 // if using this syntax no need to export ProductContext
-export default function useProducts() {
+export function useProducts() {
     return useContext(ProductContext)
 }

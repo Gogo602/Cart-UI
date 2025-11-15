@@ -1,7 +1,8 @@
+import { useCart } from "../context/CartContext"
 
-import React from 'react'
+export default function ProductCard({ product }) {
+  const { addToCart } = useCart()
 
-export default function ProductCard({product}) {
   return (
    <div className='border p-6 rounded-md bg-white space-y-3'>
         <img src={product.image} alt={product.name} className='h-40 object-cover mx-auto'/>
@@ -10,9 +11,12 @@ export default function ProductCard({product}) {
         <p>Price: {" "}${product.price}</p>
         <p>Quantity: {" "}{product.quantity}</p>
         <div className='flex items-center justify-between'>
-        <p>Category: {" "}{product.category}</p>
-        <p>Ratings: {" "}{product.rating}</p>
+          <p>Category: {" "}{product.category}</p>
+          <p>Ratings: {" "}{product.rating}</p>
         </div>
+        <button 
+          onClick={ () => addToCart(product)}
+          className=" bg-gray-700 text-white font-bold rounded-lg text-center w-full py-2">Add to Cart</button>
     </div>
   )
 }
