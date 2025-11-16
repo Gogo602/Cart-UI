@@ -9,7 +9,6 @@ export default function Header() {
     const [showDropDwon, setShowDropDown ] = useState(false)
     const { cart } = useCart()
     const itemCount = cart.reduce((acc, item) => acc + item.qty, 0)
-    const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
 
     const handleShow = () => {
         setShowDropDown(!showDropDwon)
@@ -29,9 +28,9 @@ export default function Header() {
                             </p>
                         )}
                     </button>
-                    {showDropDwon && (
-                        <CartItems cart={cart} total={total} />
-                    )}
+                    {showDropDwon &&  (
+                        <CartItems/>
+                  )}
               </div>
           </div> 
     </div>
