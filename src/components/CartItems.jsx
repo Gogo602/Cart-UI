@@ -2,13 +2,20 @@ import React from 'react'
 import { useCart } from '../context/CartContext'
 
 export default function CartItems() {
-    const { cart, removeFromCart } = useCart()
+    const { cart, removeFromCart, clearCart } = useCart()
     const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
     
 
   return (
     <div className='absolute right-0 nt-2 w-80 bg-white border rounded-lg shadow-lg z-50 p-3 space-y-5'>
-            <h2 className='text-lg font-bold'>My Cart</h2>
+            <div className='flex items-center justify-between'>
+                <h2 className='text-lg font-bold'>My Cart</h2>
+              {cart.length > 0 && (
+                  <button onClick={() => clearCart(cart)} className='border text-white bg-red-700 rounded-lg px-4 py-1'>
+                      Clear Cart
+                  </button>
+                )}
+            </div>
             {cart.length > 0 ? (
               <>
                 {cart.map((product) => (
@@ -28,14 +35,14 @@ export default function CartItems() {
                             </div>
                             <div className='flex items-center justify-between mt-2'>
                                 <h5>Price</h5>
-                                <p>{product.price}</p>
+                                <p className='font-bold'>{product.price}</p>
                             </div>
-                            <div className='flex items-center justify-between mt-2'>
+                            <div className='flex items-center justify-between mt-2 font-bold'>
                                 <h5>Sub Total</h5>
                                 <p>{Number(product.price * product.qty).toFixed(2)}</p>
                             </div>
                             <button onClick={() => removeFromCart(product.id)} className=" bg-gray-700 text-white font-bold rounded-lg text-center w-full py-2 mt-2">
-                                Delete Item{product.qty > 1 ? "s" : ""}
+                                Remove Item{product.qty > 1 ? "s" : ""}
                             </button>
                         </div>
                     ))}
